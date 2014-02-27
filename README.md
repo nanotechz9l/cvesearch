@@ -12,8 +12,7 @@ Written by Rick Flores @nanotechz9l
 You *MUST install the rainbow gem for the pretty colorized output seen above:
 
 	gem install rainbow
-	
-	require 'rainbow'
+
 
 ## Usage
  Ex 1: ./cvesearch.rb adobe
@@ -24,8 +23,10 @@ You *MUST install the rainbow gem for the pretty colorized output seen above:
 * Shell / Commandline (CLI) application allowing:
         * The search for CVEs via Identifier, and or CVE Vendor Keywords
 
+        * VENDOR KEYWORD SEARCH
 	![Screenshot](http://imageshack.com/a/img853/5053/c7rj.png)
 	
+        * CVE IDENTIFIER SEARCH
 	![Screenshot](http://imageshack.com/a/img843/6884/9sy8.png)
 
 ## Requirements
