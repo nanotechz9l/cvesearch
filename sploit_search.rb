@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 
- require 'nokogiri'
- require 'open-uri'
- require 'rainbow'
+ require 'nokogiri';require 'open-uri';require 'rainbow/ext/string'
 
  def  banner()
  print """  
