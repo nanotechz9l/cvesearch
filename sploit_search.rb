@@ -6,12 +6,10 @@
  print """  
           =================================================================
           =================================================================
-          ======= => CVE Identifier, and Keyword Search v 0.0.1 ===========
+          ======= => Explot / CVE Search v 0.0.1                ===========
           =================================================================
-          ======= ~> by Rick (nanotechz9l) Flores               ===========
-          ======= ~> 0xnanoquetz9l<v>gmail                      ===========
-          ======= ~> https://github.com/nanotechz9l             ===========
-          ======= ~> https://twitter.com/nanotechz9l            ===========
+          ======= Rick (nanotechz9l) Flores                     ===========
+          ======= https://github.com/nanotechz9l                ===========
           =================================================================
           =================================================================
 
@@ -37,24 +35,36 @@
       exit(0)
       end
 
-      cveid    = ARGV[0]
-      keyword  = ARGV[0]
+      #cveid, keyword, exploit_db = ARGV[0] //<-- doesnt work, it should!
+      #cveid       = ARGV[0]
+      #keyword     = ARGV[0]
+      exploit_db  = ARGV[0]
 
-      # Search via CVE Identifier
+      
+      # 1. Search via CVE Identifier
       cveid = Nokogiri.HTML(open("http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=#{cveid}"))       # CVE search
-
-      # Search via Vendor Keyword
+      ## CVE XPaths!
+      #c = cveid.xpath('//*[@id="GeneratedTable"]').text # cveid
+      #puts c
+      
+      
+      # 2. Search via Vendor Keyword
       keyword = Nokogiri.HTML(open("http://www.cve.mitre.org/cgi-bin/cvekey.cgi?keyword=#{keyword}")) # Keyword search 
-
       ## Keyword XPaths! 
       #   Results                       //html/body/div/table/tr[2]/td[2]/div                 # to much fluff!
       #   Table (all)!                  //html/body/div/table/tr[2]/td[2]/div[2]/table        # works but misaligned!
       #   Table head (name/description) //html/body/div/table/tr[2]/td[2]/div[2]/table/thead  # vague
       #   Table body (number/details)   //html/body/div/table/tr[2]/td[2]/div[2]/table/tbody  # ?
-
-      ## CVE XPaths!
-      c = cveid.xpath('//*[@id="GeneratedTable"]').text # cveid
-
       ## Keyword XPaths!
-      k = keyword.xpath('//html/body/div/table/tr[2]/td[2]/div[2]/table').text # keyword
-      puts k
+      #k = keyword.xpath('//html/body/div/table/tr[2]/td[2]/div[2]/table').text # keyword
+      #puts k
+
+      
+      # 3. Search CVE via exploit-db.com
+      #exploit_db = Nokogiri.HTML(open("http://www.exploit-db.com/search/?action=search&filter_page=1&filter_description=&filter_exploit_text=&filter_author=&filter_platform=0&filter_type=0&filter_lang_id=0&filter_port=&filter_osvdb=&filter_cve=#{exploit_db}"))
+      #exploit_db = Nokogiri.HTML(open("http://www.exploit-db.com/search/?action=search&filter_page=1&filter_description=&filter_exploit_text=&filter_author=&filter_platform=0&filter_type=0&filter_lang_id=0&filter_port=&filter_osvdb=&filter_cve=2010-2204"))
+      #e = exploit_db.xpath('.list_explot_description').text
+      #puts e
+      
+      res = Nokogiri::HTML(open("http://www.exploit-db.com/search/?action=search&filter_page=1&filter_description=&filter_exploit_text=&filter_author=&filter_platform=0&filter_type=0&filter_lang_id=0&filter_port=&filter_osvdb=&filter_cve=#{exploit_db}"))
+      puts res.text
