@@ -36,9 +36,9 @@
       end
 
       #cveid, keyword, exploit_db = ARGV[0] //<-- doesnt work, it should!
-      #cveid       = ARGV[0]
-      #keyword     = ARGV[0]
-      exploit_db  = ARGV[0]
+      cveid       = ARGV[0]
+      keyword     = ARGV[0]
+      #exploit_db  = ARGV[0]
 
       
       # 1. Search via CVE Identifier
