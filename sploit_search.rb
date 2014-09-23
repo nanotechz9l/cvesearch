@@ -44,8 +44,8 @@
       # 1. Search via CVE Identifier
       cveid = Nokogiri.HTML(open("http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=#{cveid}"))       # CVE search
       ## CVE XPaths!
-      #c = cveid.xpath('//*[@id="GeneratedTable"]').text # cveid
-      #puts c
+      c = cveid.xpath('//*[@id="GeneratedTable"]').text # cveid
+      puts c
       
       
       # 2. Search via Vendor Keyword
@@ -56,8 +56,8 @@
       #   Table head (name/description) //html/body/div/table/tr[2]/td[2]/div[2]/table/thead  # vague
       #   Table body (number/details)   //html/body/div/table/tr[2]/td[2]/div[2]/table/tbody  # ?
       ## Keyword XPaths!
-      #k = keyword.xpath('//html/body/div/table/tr[2]/td[2]/div[2]/table').text # keyword
-      #puts k
+      k = keyword.xpath('//html/body/div/table/tr[2]/td[2]/div[2]/table').text # keyword
+      puts k
 
       
       # 3. Search CVE via exploit-db.com
