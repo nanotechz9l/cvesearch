@@ -66,5 +66,5 @@
       #e = exploit_db.xpath('.list_explot_description').text
       #puts e
       
-      res = Nokogiri::HTML(open("http://www.exploit-db.com/search/?action=search&filter_page=1&filter_description=&filter_exploit_text=&filter_author=&filter_platform=0&filter_type=0&filter_lang_id=0&filter_port=&filter_osvdb=&filter_cve=#{exploit_db}"))
-      puts res.text
+      #res = Nokogiri::HTML(open("http://www.exploit-db.com/search/?action=search&filter_page=1&filter_description=&filter_exploit_text=&filter_author=&filter_platform=0&filter_type=0&filter_lang_id=0&filter_port=&filter_osvdb=&filter_cve=#{exploit_db}"))
+      #puts res.text
